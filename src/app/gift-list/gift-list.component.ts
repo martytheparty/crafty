@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { GiftsService } from '../gifts.service';
 
 @Component({
   selector: 'app-gift-list',
   templateUrl: './gift-list.component.html',
   styleUrls: ['./gift-list.component.css']
 })
-export class GiftListComponent implements OnInit {
+export class GiftListComponent {
 
-  constructor() { }
+  public gifts = [];
+  public text = '';
 
-  ngOnInit(): void {
+  constructor(private giftService: GiftsService) {
+    this.giftService.getGifts().subscribe(this.updateGifts.bind(this));
+  }
+
+  updateGifts(gifts) {
+    this.gifts = gifts.reverse();
   }
 
 }
