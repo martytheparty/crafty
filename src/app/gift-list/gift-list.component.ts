@@ -16,7 +16,8 @@ export class GiftListComponent {
   }
 
   updateGifts(gifts) {
-    this.gifts = gifts.reverse();
+    console.log('thsi fi', Object.keys(gifts));
+    this.gifts = gifts;
   }
 
 }

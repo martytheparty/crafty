@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { groupBy } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GiftsService {
-  private gifts: [] = [];
+  private gifts: GroupedGifts[] = [];
   private giftObservable: Observable<any[]>;
   private observer: any;
 
@@ -20,9 +21,14 @@ export class GiftsService {
     }
 
    loadGifts(): void {
-    this.http.get('https://api.flyingskunkmonkeys.com/gifts').subscribe(
-      (result: []) => {
-        this.gifts = result;
+    this.http.get('https://api.flyingskunkmonkeys.com/gifts')
+    // .pipe(
+    //   groupBy((gift: FlatGift) => gift.g_id)
+    // )
+    .subscribe(
+      (result: FlatGift[]) => {
+        this.gifts = this.groupBy(result, 'g_id');
+        console.log('result: ', this.gifts);
         this.observer.next(this.gifts);
       }
     );
@@ -33,4 +39,31 @@ export class GiftsService {
       return this.giftObservable;
    }
 
+   groupBy(objectArray, property) {
+    return objectArray.reduce(function (acc, obj) {
+      let key = obj[property]
+      if (!acc[key]) {
+        acc[key] = []
+      }
+      acc[key].push(obj)
+      return acc
+    }, {})
+  }
+
 }
+
+
+
+class FlatGift {
+  g_id: string;
+  title: string;
+  description: string;
+  path: string;
+  votes: string;
+}
+
+class GroupedGifts {
+  g_id: string;
+  gifts: FlatGift[];
+}
+
