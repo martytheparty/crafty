@@ -7,6 +7,10 @@ export interface FlatGift {
     movie?: boolean;
 }
 
+export interface UiFlatGift extends FlatGift {
+    selected?: boolean;
+}
+
 export interface GroupedGifts {
     g_id: string;
     gifts: FlatGift[];

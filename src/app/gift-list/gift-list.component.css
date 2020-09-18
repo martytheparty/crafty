@@ -9,7 +9,7 @@
 
 .gift-list {
     width: 300px;
-    height: 300px;
+    float:left;
 }
 
 .gift-title {

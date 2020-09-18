@@ -1,6 +1,10 @@
 
 <div class="gift-list" *ngFor="let key of keys">
-    <div class="gift" *ngFor="let gift of gifts[key]">
+    <div 
+        class="gift" 
+        *ngFor="let gift of gifts[key]"
+        [ngStyle]="{'display':gift.selected ? 'block' : 'none' }"
+        >
         <div class="gift-title">{{gift.title}}</div>
         <img *ngIf="!gift.movie" width="300px" src="https://api.flyingskunkmonkeys.com/pics/{{gift.path}}" />
         <video controls *ngIf="gift.movie" width="300px" src="https://api.flyingskunkmonkeys.com/pics/{{gift.path}}"></video>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GiftsService } from '../gifts.service';
-import { GroupedGifts } from '../models';
+import { GroupedGifts, UiFlatGift } from '../models';
 
 @Component({
   selector: 'app-gift-list',
@@ -20,6 +20,16 @@ export class GiftListComponent {
   updateGifts(gifts: GroupedGifts[]): void {
     this.keys = Object.keys(gifts).reverse();
     this.gifts = gifts;
+    this.initializeDisplay();
+  }
+
+  initializeDisplay(): void {
+    this.keys.forEach(
+      (key) => {
+        const gift: UiFlatGift = this.gifts[key][0];
+        gift.selected = true;
+      }
+    );
   }
 
 }
