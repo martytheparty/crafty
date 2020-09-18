@@ -1,3 +1,23 @@
-.container {
-    border: 1px solid black
+.container-fluid{
+    background-color:aliceblue;
+}
+
+.gift {
+    background-color:aliceblue;
+    float:left;
+    position: absolute;
+}
+
+.gift-list {
+    border: 1px solid black;
+    float: left;
+    width: 300px;
+    height: 300px;
+}
+
+.gift-title {
+    width:300px;
+    background-color:aliceblue;
+    position: absolute;
+    opacity: .7;
 }
