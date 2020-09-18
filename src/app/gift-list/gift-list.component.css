@@ -5,11 +5,9 @@
 .gift {
     background-color:aliceblue;
     float:left;
-    position: absolute;
 }
 
 .gift-list {
-    float: left;
     width: 300px;
     height: 300px;
 }

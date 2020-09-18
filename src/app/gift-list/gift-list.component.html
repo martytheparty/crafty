@@ -2,7 +2,8 @@
 <div class="gift-list" *ngFor="let key of keys">
     <div class="gift" *ngFor="let gift of gifts[key]">
         <div class="gift-title">{{gift.title}}</div>
-        <img width="300px" src="https://api.flyingskunkmonkeys.com/pics/{{gift.path}}" />
+        <img *ngIf="!gift.movie" width="300px" src="https://api.flyingskunkmonkeys.com/pics/{{gift.path}}" />
+        <video controls *ngIf="gift.movie" width="300px" src="https://api.flyingskunkmonkeys.com/pics/{{gift.path}}"></video>
     </div>
 </div>
 

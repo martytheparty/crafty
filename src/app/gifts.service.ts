@@ -24,6 +24,11 @@ export class GiftsService {
     this.http.get('https://api.flyingskunkmonkeys.com/gifts')
     .subscribe(
       (result: FlatGift[]) => {
+        result.forEach(
+          (gift: FlatGift) => {
+            gift.movie = gift.path.endsWith('mp4');
+          }
+        );
         this.gifts = this.groupBy(result, 'g_id');
         this.observer.next(this.gifts);
       }
