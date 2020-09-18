@@ -11,7 +11,6 @@ export class GiftListComponent {
 
   public gifts: GroupedGifts[] = [];
   public keys: string[] = [];
-  public text = '';
 
   constructor(private giftService: GiftsService) {
     this.giftService.getGifts().subscribe(this.updateGifts.bind(this));
