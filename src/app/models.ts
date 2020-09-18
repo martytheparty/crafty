@@ -4,9 +4,10 @@ export interface FlatGift {
     description: string;
     path: string;
     votes: string;
-  }
-  
-  export interface GroupedGifts {
+    movie?: boolean;
+}
+
+export interface GroupedGifts {
     g_id: string;
     gifts: FlatGift[];
-  }
+}

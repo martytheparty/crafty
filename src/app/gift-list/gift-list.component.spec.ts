@@ -6,7 +6,6 @@ import { GiftsService } from '../gifts.service';
 describe('GiftListComponent', () => {
   let component: GiftListComponent;
   let fixture: ComponentFixture<GiftListComponent>;
-  let giftServiceSpy: jasmine.SpyObj<GiftsService>;
 
   beforeEach(async () => {
     const spy = jasmine.createSpyObj('GiftsService', ['getGifts']);

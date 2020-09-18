@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { GroupedGifts, FlatGift } from './models'
+import { GroupedGifts, FlatGift } from './models';
 
 @Injectable({
   providedIn: 'root'
@@ -35,15 +35,15 @@ export class GiftsService {
       return this.giftObservable;
    }
 
-   groupBy(objectArray, property) {
-    return objectArray.reduce(function (acc, obj) {
-      let key = obj[property]
+   groupBy(objectArray, property): any {
+    return objectArray.reduce( (acc, obj) => {
+      const key = obj[property];
       if (!acc[key]) {
-        acc[key] = []
+        acc[key] = [];
       }
-      acc[key].push(obj)
-      return acc
-    }, {})
+      acc[key].push(obj);
+      return acc;
+    }, {});
   }
 
 }

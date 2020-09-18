@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GiftsService } from '../gifts.service';
-import { GroupedGifts } from '../models'
+import { GroupedGifts } from '../models';
 
 @Component({
   selector: 'app-gift-list',
@@ -17,7 +17,7 @@ export class GiftListComponent {
     this.giftService.getGifts().subscribe(this.updateGifts.bind(this));
   }
 
-  updateGifts(gifts: GroupedGifts[]) {
+  updateGifts(gifts: GroupedGifts[]): void {
     this.keys = Object.keys(gifts).reverse();
     this.gifts = gifts;
   }
