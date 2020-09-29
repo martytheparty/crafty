@@ -1,13 +1,17 @@
-
-<div class="gift-list" *ngFor="let key of keys">
+<div class="container gift-list-container">
     <div 
-        class="gift" 
-        *ngFor="let gift of gifts[key]"
-        [ngStyle]="{'display':gift.selected ? 'block' : 'none' }"
-        >
-        <div class="gift-title">{{gift.title}}</div>
-        <img *ngIf="!gift.movie" width="300px" src="https://api.flyingskunkmonkeys.com/pics/{{gift.path}}" />
-        <video controls *ngIf="gift.movie" width="300px" src="https://api.flyingskunkmonkeys.com/pics/{{gift.path}}"></video>
+        class="gift-list row justify-content-center"
+        *ngFor="let key of keys">
+        <div 
+            class="gift col" 
+            *ngFor="let gift of gifts[key]"
+            [ngStyle]="{'display':gift.selected ? 'block' : 'none' }"
+            >
+            <div class="gift-title">{{gift.title}}</div>
+            <ng-container>
+                <img *ngIf="!gift.movie" width="300px" src="https://api.flyingskunkmonkeys.com/pics/{{gift.smallPath}}" />
+                <video controls *ngIf="gift.movie" width="300px" src="https://api.flyingskunkmonkeys.com/pics/{{gift.smallPath}}"></video>
+            </ng-container>
+        </div>
     </div>
 </div>
-

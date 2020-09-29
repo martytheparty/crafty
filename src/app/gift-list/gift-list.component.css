@@ -14,7 +14,11 @@
 
 .gift-title {
     width:300px;
-    background-color:aliceblue;
+    background-color:#fff;
     position: absolute;
-    opacity: .7;
+    opacity: .8;
+}
+
+.gift-list-container {
+    margin-top: 60px;
 }

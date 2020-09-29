@@ -3,8 +3,10 @@ export interface FlatGift {
     title: string;
     description: string;
     path: string;
+    smallPath: string;
     votes: string;
     movie?: boolean;
+    published?: string;
 }
 
 export interface UiFlatGift extends FlatGift {

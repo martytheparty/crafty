@@ -21,7 +21,9 @@ export class GiftsService {
     }
 
    loadGifts(): void {
-    this.http.get('https://api.flyingskunkmonkeys.com/gifts')
+    const cacheBust = Math.random();
+    this.http
+    .get('https://api.flyingskunkmonkeys.com/gifts?random=' + cacheBust)
     .subscribe(
       (result: FlatGift[]) => {
         result.forEach(
@@ -29,7 +31,9 @@ export class GiftsService {
             gift.movie = gift.path.endsWith('mp4');
           }
         );
-        this.gifts = this.groupBy(result, 'g_id');
+        const giftList: FlatGift[] = result
+        .filter(gift => gift.published === '1');
+        this.gifts = this.groupBy(giftList, 'g_id');
         this.observer.next(this.gifts);
       }
     );
