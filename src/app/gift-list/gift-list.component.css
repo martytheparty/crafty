@@ -1,15 +1,9 @@
-.container-fluid{
-    background-color:aliceblue;
-}
-
 .gift {
-    background-color:aliceblue;
-    float:left;
+    margin: 1px;
 }
 
 .gift-list {
-    width: 300px;
-    float:left;
+
 }
 
 .gift-title {
@@ -21,4 +15,18 @@
 
 .gift-list-container {
     margin-top: 60px;
+}
+
+img {
+    cursor: pointer;
+}
+
+video {
+    cursor: pointer;
+}
+
+.social-card {
+    height: auto;
+    max-width: 100%;
+    width: 100%;
 }
