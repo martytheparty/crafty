@@ -22,7 +22,7 @@ if (mysqli_connect_errno()) {
 
 $myArr = array();
 
-$sql = "SELECT gifts.g_id, title, description, path, smallPath, votes FROM gifts LEFT JOIN gxgi ON gxgi.g_id =gifts.g_id LEFT JOIN giftimages ON gxgi.gi_id = giftimages.gi_id WHERE deleted = false and gifts.g_id = ".$_GET["id"]." ORDER BY gxgi.order ASC";
+$sql = "SELECT gifts.g_id, title, description, path, smallPath, votes FROM gifts LEFT JOIN gxgi ON gxgi.g_id =gifts.g_id LEFT JOIN giftimages ON gxgi.gi_id = giftimages.gi_id WHERE gifts.deleted = false and gifts.g_id = ".$_GET["id"]." ORDER BY gxgi.order ASC";
 
 
 
