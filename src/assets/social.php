@@ -22,7 +22,7 @@ if (mysqli_connect_errno()) {
 
 $myArr = array();
 
-$sql = "SELECT gifts.g_id, title, description, path, smallPath, votes FROM gifts LEFT JOIN gxgi ON gxgi.g_id =gifts.g_id LEFT JOIN giftimages ON gxgi.gi_id = giftimages.gi_id WHERE gifts.deleted = false and gifts.g_id = ".$_GET["id"]." ORDER BY gxgi.order ASC";
+$sql = "SELECT gifts.g_id, title, description, path, smallPath, votes FROM gifts LEFT JOIN gxgi ON gxgi.g_id =gifts.g_id LEFT JOIN giftimages ON gxgi.gi_id = giftimages.gi_id WHERE gifts.deleted = false and gifts.g_id = '".$_GET["id"]."' ORDER BY gxgi.order ASC";
 
 
 
@@ -32,6 +32,30 @@ $result = mysqli_query($link,$sql) or die("Unable to select: ".mysql_error());
 while($row = mysqli_fetch_assoc($result)) {
     array_push($myArr, $row);
 }
+
+$visitCount = 0;
+$recordFound = false;
+$countId = 0;
+
+$sql = "SELECT * FROM giftviews WHERE g_id = '".$_GET["id"]."'";
+$result = mysqli_query($link,$sql) or die("Unable to select: ".mysql_error());
+while($row = mysqli_fetch_assoc($result)) {
+    $visitCount = $row['count'];
+    $recordFound = true;
+    $countId = $row['gv_id'];
+}
+
+
+$visitCount = $visitCount + 1;
+
+if ($recordFound) {
+    $sql = "UPDATE giftviews SET count = $visitCount WHERE gv_id = $countId ";
+} else {
+    $sql = "INSERT INTO giftviews (g_id, count) VALUES (".$_GET["id"].","."1".")";
+}
+
+$result = mysqli_query($link,$sql) or die("Unable to select: ".mysql_error());
+
 
 mysqli_close($link);
 
@@ -105,7 +129,7 @@ mysqli_close($link);
 
 <header>
     <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-        <img width="40" src="logo.jpg"> <a class="navbar-brand" href="/">Crafty By Melissa</a> 
+        <img width="40" src="logo.jpg" title="view count <?php echo $visitCount; ?>"> <a class="navbar-brand" href="/">Crafty By Melissa</a> 
     </nav>
 </header>
 <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
@@ -140,10 +164,6 @@ mysqli_close($link);
     ?>
     </div>
 </div>
-
-
-
-
 </body>
 </html>
 
