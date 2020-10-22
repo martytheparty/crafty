@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { GiftListComponent } from './gift-list/gift-list.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    GiftListComponent
+    GiftListComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

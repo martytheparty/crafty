@@ -111,7 +111,7 @@ mysqli_close($link);
     <link rel="stylesheet" href="bootstrap.min.css">
     <style>
         .gift-list-content {
-            margin-top: 60px;
+            margin-top: 90px;
         }
         .navbar img {
             margin: 0 5px 0 0;
@@ -129,7 +129,17 @@ mysqli_close($link);
 
 <header>
     <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-        <img width="40" src="logo.jpg" title="view count <?php echo $visitCount; ?>"> <a class="navbar-brand" href="/">Crafty By Melissa</a> 
+        <div class="container">
+            <a class="navbar-brand navitem nav-link" href="/">
+                <img width="40" src="logo.jpg" title="view count <?php echo $visitCount; ?>">
+                Crafty By Melissa
+            </a> 
+            <div class="navbar-nav ml-3">
+                <a href="https://www.etsy.com/au/shop/CraftyByMelissaGA">
+                    <img width="60" src="/assets/Etsy_logo.svg">
+                </a>
+            </div>
+        </div>
     </nav>
 </header>
 <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
@@ -164,6 +174,13 @@ mysqli_close($link);
     ?>
     </div>
 </div>
+<footer class="footer fixed-bottom bg-dark navbar-dark p-1">
+    <div class="container text-light text-center">
+        <img src="/assets/logo.jpg" width="30">
+        Check Out My 
+        <a href="https://www.etsy.com/au/shop/CraftyByMelissaGA"><img src="/assets/Etsy_logo.svg" width="40"></a> Page
+    </div>
+</footer>
 </body>
 </html>
 
