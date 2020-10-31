@@ -57,7 +57,7 @@ if ($recordFound) {
 $result = mysqli_query($link,$sql) or die("Unable to select: ".mysql_error());
 
 
-mysqli_close($link);
+
 
 
 
@@ -171,7 +171,8 @@ mysqli_close($link);
     }
     echo '<div style="display:none">ID: '.$myArr[0]['g_id'].'</div>';
     echo '<div style="display:none">Path: '.$imagePath.$myArr[0]['smallPath'].'</div>';
-    ?>
+
+?>
     </div>
 </div>
 <footer class="footer fixed-bottom bg-dark navbar-dark p-1">
@@ -180,6 +181,15 @@ mysqli_close($link);
         Check Out My 
         <a href="https://www.etsy.com/au/shop/CraftyByMelissaGA"><img src="/assets/Etsy_logo.svg" width="40"></a> Page
     </div>
+
+    <?php 
+            $sql = "insert gifthits (request, server, g_id, visit_date_time, visit_url, visit_referer, visit_browser) VALUES ('".implode($_SERVER)."','".$_SERVER['SERVER_NAME']."','".$myArr[0]['g_id']."','".$_SERVER['REQUEST_TIME']."','".$_SERVER['REQUEST_URI']."','".$_SERVER['HTTP_REFERER']."','".$_SERVER['HTTP_USER_AGENT']."')";
+
+            //  echo $sql;
+            $result = mysqli_query($link,$sql) or die("Unable to select: ".mysql_error());
+            mysqli_close($link);
+    ?>
+
 </footer>
 </body>
 </html>
