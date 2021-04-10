@@ -28,7 +28,10 @@ export class GiftsService {
       (result: FlatGift[]) => {
         result.forEach(
           (gift: FlatGift) => {
-            gift.movie = gift.path.endsWith('mp4');
+            if (gift.path) {
+              gift.movie = gift.path.endsWith('mp4');
+            }
+
           }
         );
         const giftList: FlatGift[] = result
