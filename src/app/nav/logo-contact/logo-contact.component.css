@@ -1,0 +1,32 @@
+fa-icon {
+    color:#FFF;
+    margin: 1px
+}
+
+.contact-area {
+    display: table;
+    cursor: pointer;
+}
+
+.contact-area > div {
+    display: table-row;
+}
+
+.site-logo {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.contact-text {
+    display: table-cell;
+    vertical-align: middle;
+
+}
+
+.contact-text > div {
+    display: inline-block;
+}
+
+.contact-subtitle {
+    font-size: 14px;
+}
