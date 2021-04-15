@@ -4,8 +4,8 @@ fa-icon {
 }
 
 .contact-area {
-    display: table;
     cursor: pointer;
+    display: inline-block;
 }
 
 .contact-area > div {
@@ -29,4 +29,25 @@ fa-icon {
 
 .contact-subtitle {
     font-size: 14px;
+}
+
+.contact-clicked.contact-details {
+    opacity: 1;
+    transition: 2s;
+    height: 68px; 
+}
+
+.contact-details {
+   display: inline-block; 
+   padding: 4px;
+   opacity: 0;
+   margin-left: 5px;
+}
+
+@media screen and (max-width: 780px) {
+    .contact-details {
+        display: block;
+        opacity: 0;
+        height: 0px;
+    }
 }

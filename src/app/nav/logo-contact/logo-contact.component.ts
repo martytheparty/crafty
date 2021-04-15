@@ -10,13 +10,14 @@ export class LogoContactComponent implements OnInit {
 
   envelopeIcon = faEnvelope;
   phoneIcon = faPhone;
+  contactClicked = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
   contactMelissa() {
-    alert(11111);
+    this.contactClicked = !this.contactClicked;
   }
 
 }
