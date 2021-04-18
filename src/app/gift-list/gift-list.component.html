@@ -11,7 +11,7 @@
                 <div class="gift-title">{{gift.title}}</div>
                 <ng-container>
                     <a href="http://www.craftybymelissa.xyz/assets/social.php?id={{gift.g_id}}">
-                        <img *ngIf="!gift.movie" class="image-fluid" style='width:100%' src="https://api.flyingskunkmonkeys.com/pics/{{gift.smallPath}}" />
+                        <img *ngIf="!gift.movie"  loading="lazy" class="image-fluid" style='width:100%' src="https://api.flyingskunkmonkeys.com/pics/{{gift.smallPath}}" />
                     </a>
                     <video controls *ngIf="gift.movie" class="image-fluid" style='width:100%' src="https://api.flyingskunkmonkeys.com/pics/{{gift.smallPath}}"></video>
                 </ng-container>
