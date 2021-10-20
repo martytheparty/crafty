@@ -9,6 +9,9 @@ import { GiftListComponent } from './gift-list/gift-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LogoContactComponent } from './nav/logo-contact/logo-contact.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet'; 
+import { CommissionArtComponent } from './commission-art/commission-art.component';
 
 
 @NgModule({
@@ -17,13 +20,16 @@ import { LogoContactComponent } from './nav/logo-contact/logo-contact.component'
     NavComponent,
     GiftListComponent,
     FooterComponent,
-    LogoContactComponent
+    LogoContactComponent,
+    CommissionArtComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    MatBottomSheetModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,12 @@
 <footer class="footer fixed-bottom bg-dark navbar-dark p-1">
-    <div class="container text-light text-center">
-        <img src="/assets/logo.jpg" width="30">
-        Check Out My 
-        <a href="https://www.etsy.com/au/shop/CraftyByMelissaGA"><img src="/assets/Etsy_logo.svg" width="40"></a> Page
+    <div class="container text-light text-center d-flex justify-content-center" (click)="openBottomSheet()">
+        <div class="m-2">
+            <img src="/assets/logo.jpg" width="65">
+        </div>
+        <div class="m-2 d-flex flex-column text-left">
+            <div>Do You Like My Art?</div>  
+            <div>Would You Like Me To Make Something For You?</div>
+            <div><span style="color:blue;cursor:pointer;text-decoration: underline;">Click</span> To Commission A Piece.</div>
+        </div>
     </div>
 </footer>

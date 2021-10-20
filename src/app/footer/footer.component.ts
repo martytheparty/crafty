@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { CommissionArtComponent } from '../commission-art/commission-art.component' 
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _bottomSheet: MatBottomSheet) { }
 
   ngOnInit(): void {
+  }
+
+  openBottomSheet(): void {
+    this._bottomSheet.open(CommissionArtComponent);
   }
 
 }
