@@ -135,9 +135,7 @@ $result = mysqli_query($link,$sql) or die("Unable to select: ".mysql_error());
                 Crafty By Melissa
             </a> 
             <div class="navbar-nav ml-3">
-                <a href="https://www.etsy.com/au/shop/CraftyByMelissaGA">
-                    <img width="60" src="/assets/Etsy_logo.svg">
-                </a>
+                &nbsp;
             </div>
         </div>
     </nav>
@@ -177,9 +175,7 @@ $result = mysqli_query($link,$sql) or die("Unable to select: ".mysql_error());
 </div>
 <footer class="footer fixed-bottom bg-dark navbar-dark p-1">
     <div class="container text-light text-center">
-        <img src="/assets/logo.jpg" width="30">
-        Check Out My 
-        <a href="https://www.etsy.com/au/shop/CraftyByMelissaGA"><img src="/assets/Etsy_logo.svg" width="40"></a> Page
+        &nbsp;
     </div>
 
     <?php 
